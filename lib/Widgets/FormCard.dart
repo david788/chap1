@@ -1,7 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class FormCard extends StatelessWidget {
+class FormCard extends StatefulWidget {
+  @override
+  _FormCardState createState() => _FormCardState();
+}
+
+class _FormCardState extends State<FormCard> {
+  var email = TextEditingController();
+
+  var password = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -37,6 +46,7 @@ class FormCard extends StatelessWidget {
             ),
             Text("Email", style: TextStyle(fontSize: 26)),
             TextField(
+              controller: email,
               decoration: InputDecoration(
                 hintText: "Enter Email",
               ),
@@ -46,6 +56,7 @@ class FormCard extends StatelessWidget {
             ),
             Text("Password", style: TextStyle(fontSize: 26)),
             TextField(
+              controller: password,
               obscureText: true,
               decoration: InputDecoration(
                 hintText: "Enter Password",
