@@ -41,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Container(
           width: 120,
-          height: 3,
+          height: 2,
           color: Colors.black26.withOpacity(.2),
         ),
       );
