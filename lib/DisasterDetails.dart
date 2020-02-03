@@ -171,7 +171,7 @@ class _DisasterDetailState extends State<DisasterDetail> {
   }
 }
 
-class AlerUser extends StatelessWidget {
+class AlertUser extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SnackBar mySnackBar = SnackBar(
