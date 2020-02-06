@@ -1,5 +1,3 @@
-// import 'dart:html';
-
 import 'package:chap/Admin/DisasterImages.dart';
 import 'package:chap/Admin/UploadAdvice.dart';
 import 'package:chap/Table.dart';
@@ -14,9 +12,10 @@ class AdminHomePage extends StatefulWidget {
 class _AdminHomePageState extends State<AdminHomePage> {
   int _currentIndex = 0;
   final List<Widget> _children = [
-    DataTableDemo(),
+    ReportedDisasters(),
     UploadAdvicePge(),
-    DisasterImagesPage(),
+    DataTableDemo(),
+    
   ];
   void onTappedBar(int index) {
     setState(() {
@@ -64,7 +63,7 @@ class _AdminHomePageState extends State<AdminHomePage> {
           PopupMenuButton(
             itemBuilder: (BuildContext context) {
               return [
-                PopupMenuItem(child: Text("Log Out")),
+                PopupMenuItem(child: Text("Log Out"),),
               ];
             },
           ),
@@ -148,7 +147,7 @@ class DataSearch extends SearchDelegate<String> {
         : ids.where((p) => p.startsWith(query)).toList();
     return ListView.builder(
       itemBuilder: (context, index) => ListTile(
-        onTap: (){
+        onTap: () {
           showResults(context);
         },
         leading: Icon(Icons.live_help),
@@ -168,3 +167,4 @@ class DataSearch extends SearchDelegate<String> {
     );
   }
 }
+

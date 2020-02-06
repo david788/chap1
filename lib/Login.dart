@@ -1,7 +1,5 @@
-import 'package:chap/HomePage.dart';
 import 'package:chap/MainControllerPage.dart';
 import 'package:chap/RegisterPage.dart';
-import 'package:chap/Widgets/FormCard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -213,8 +211,11 @@ class _LoginPageState extends State<LoginPage> {
           : Column(
             mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Center(child: Text("please wait..."),),
-                Center(child:CupertinoActivityIndicator(),)
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Center(child: Text("please wait..."),),
+                ),
+                Center(child:CupertinoActivityIndicator(radius: 20,animating: true,),)
               ],
             ),
     );

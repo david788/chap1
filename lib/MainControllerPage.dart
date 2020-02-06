@@ -2,7 +2,6 @@ import 'package:chap/HomePage.dart';
 import 'package:chap/TabFiles/Contacts.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'Home.dart';
 import 'MainControllerPages/AboutPage.dart';
 
 class MainControllerPage extends StatefulWidget {

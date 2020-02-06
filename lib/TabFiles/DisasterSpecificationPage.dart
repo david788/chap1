@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:chap/HomePage.dart';
 import 'package:chap/MainControllerPage.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -28,7 +27,7 @@ class _DisasterSpecificationPageState extends State<DisasterSpecificationPage> {
   _openGallery(BuildContext context) async {
     var picture = await ImagePicker.pickImage(source: ImageSource.gallery);
     setState(() {
-      imageFile = picture;
+      return imageFile = picture;
     });
     print('image path$imageFile');
     // this.setState({}[imageFile = picture]);
@@ -38,12 +37,12 @@ class _DisasterSpecificationPageState extends State<DisasterSpecificationPage> {
   _openCamera(BuildContext context) async {
     var picture = await ImagePicker.pickImage(source: ImageSource.camera);
     // this.setState({}[imageFile = picture]);
-    Navigator.of(context).pop();
 
     setState(() {
-      imageFile = picture;
+     return imageFile = picture;
     });
     print('image path$imageFile');
+    Navigator.of(context).pop();
   }
 
   Future<void> _showChoiceDialog(BuildContext context) {
@@ -94,7 +93,7 @@ class _DisasterSpecificationPageState extends State<DisasterSpecificationPage> {
     } else {
       return Text('No image selected');
     }
-    return null;
+    // return null;
   }
 
   bool validateAndSave() {
@@ -117,13 +116,11 @@ class _DisasterSpecificationPageState extends State<DisasterSpecificationPage> {
         final StorageUploadTask uploadTask = disasterImageRef
             .child(timeKey.toString() + ".jpg")
             .putFile(imageFile);
-        var ImageUrl = await (await uploadTask.onComplete).ref.getDownloadURL();
-        url = ImageUrl.toString();
+        var imageUrl = await (await uploadTask.onComplete).ref.getDownloadURL();
+        url = imageUrl.toString();
         saveToDatabase(url);
         toggleLoading();
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => MainControllerPage()));
-        SnackBar snackBar = SnackBar(
+         SnackBar snackBar = SnackBar(
           content: Text(
             "Reported successfully",
             textAlign: TextAlign.center,
@@ -131,6 +128,9 @@ class _DisasterSpecificationPageState extends State<DisasterSpecificationPage> {
         );
 
         Scaffold.of(context).showSnackBar(snackBar);
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => MainControllerPage()));
+       
       } catch (e) {
         print(e.toString());
         Navigator.pushReplacement(context,
@@ -326,11 +326,11 @@ class _DisasterSpecificationPageState extends State<DisasterSpecificationPage> {
                               child: InkWell(
                                 onTap: () {
                                   // _submit();
-                                  if(imageFile!=null){
+                                  // uploadDisaster();
+                                  if (imageFile != null) {
                                     uploadDisaster();
-                                  }
-                                  else return null;
-                                  
+                                  } else
+                                    return null;
                                 },
                                 child: Center(
                                   child: Text(

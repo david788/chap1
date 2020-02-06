@@ -2,8 +2,6 @@ import 'package:chap/DisasterPage.dart';
 import 'package:chap/TabFiles/Advice.dart';
 import 'package:chap/TabFiles/Contacts.dart';
 import 'package:chap/TabFiles/DisasterSpecificationPage.dart';
-import 'package:chap/TabFiles/disaster.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
